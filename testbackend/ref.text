@@ -1,0 +1,22 @@
+{
+  "name": "projbackend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "formidable": "^1.2.1",
+    "i": "^0.3.6",
+    "lodash": "^4.17.15",
+    "morgan": "^1.9.1",
+    "npm": "^6.13.0",
+  }
+}
+
+
+

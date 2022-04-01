@@ -1,0 +1,29 @@
+under every subfolder of src there is subfolder call helper(helper inside the helper we create file that will talk to backend data API call)
+
+
+****************** On click of the Sumbmit button ntoes ***************
+const onSubmit = event => {
+    # First prevent the default so that we can write our own
+    event.preventDefault();
+    #Set the value of the Usestate to the desired value
+    setValues({ ...values, error: false, loading: true });
+    # Run the signin function which takes two input from the user
+    signin({ email, password })
+    #once we receive the requested user data(email and password) run .then() and .catch() method
+        .then(data => {  #.them return a callback let's store that in data and run the call back funciton
+        # let's handle if there is any error in the data
+            if (data.error) {
+                setValues({ ...values, error: data.error, loading: false });
+            } else { 
+                #if no error than authenticate the user
+                authenticate(data, () => {
+                    # if user is autheticated than set value and turn didRedirect to true
+                    setValues({
+                        ...values,
+                        didRedirect: true
+                    });
+                });
+            }
+        })
+        .catch(console.log("signin request failed"));
+};
